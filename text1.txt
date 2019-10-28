@@ -1,0 +1,86 @@
+如何使用Git Bash Here，将本地项目传到github上
+申请一个github账号
+
+安装git bash
+
+git与git bash的区别：
+
+git：版本控制工具，支持该工具的网站有Github、BitBucket、Gitorious、国内的osChina仓库、csdn仓库等等
+
+git bash：在windows系统下使用git命令的模拟终端（windows自带的cmd功能太弱）linux、unix可以直接使用git
+
+git的安装与使用参照：http://www.cnblogs.com/Bonker/p/3441781.html
+
+第一步：本地git与github之间需要通过ssh密钥来连接，需先生成一个密钥
+
+在桌面右键Git Bash Here，打开git bash命令工具，输入命令：ssh-keygen -t rsa -C 在github上注册的邮箱，回车运行创建ssh文件，遇到停下来的一路回车即可
+
+
+
+这时在C盘Users/Administrator下生成了一个.ssh文件夹
+
+
+
+.ssh文件夹内有两个文件
+
+
+
+id_rsa是私钥， id_rsa.pub是密钥
+
+打开 id_rsa.pub，全选复制内容，在github的settings里面，左侧有一个SSH and GPG keys打开，新建一个SSH key
+
+
+
+到这里github与本地git之间的ssh key连接已建好
+
+第二步：在github上建一个仓库，用于存放当前项目
+
+
+
+ 
+
+ 
+
+https://github.com/eyunhua/gallery-by-react.git链接类似于下面的https://github.com/eyunhua/screen-slide-yearbill.git链接，原因已在截图中说明
+
+第三步：使用git将本地项目上传到github上
+
+1.在将要上传的文件目录内，右键Git Bash Here，打开git bash命令工具
+
+2.输入命令：git init，回车运行如下图：
+
+
+
+3.输入命令：git add .，此命令为添加当前目录下的所有文件到github上，也可以将.换成别的文件或者文件夹名字单个上传，回车运行如下图：
+
+
+
+4.输入命令：git commit -m "first commit"，回车运行如下图：
+
+
+
+提示需要输入您的邮箱和姓名
+
+
+
+5.输入完邮箱和姓名后，接着输入命令：git commit -m "first commit"，回车运行如下图：
+
+
+
+6.输入命令：git remote add origin https://github.com/eyunhua/screen-slide-yearbill.git（项目链接，github上仓库HTTPS的链接），回车运行如下图：
+
+
+
+解决此异常，需先输入命令：git remote rm origin，再接着输入上述命令git remote add origin https://github.com/eyunhua/screen-slide-yearbill.git（项目链接，github上仓库HTTPS的链接），回车运行如下图：
+
+
+
+7.输入命令进行提交项目：git push -u origin master，回车运行需要输入用户名和密码，输入完后等待上传
+
+
+
+8.这时候刷新github就可以看到上传的项目了。
+
+
+
+ 至此，项目就上传到github上了，完成一件事情，总是很开心的，加油！
